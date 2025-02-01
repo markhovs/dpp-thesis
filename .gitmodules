@@ -1,0 +1,6 @@
+[submodule "dpp-pilot-project"]
+	path = dpp-pilot-project
+	url = git@github.com:markhovs/dpp-pilot-project.git
+[submodule "dpp-data-analysis"]
+	path = dpp-data-analysis
+	url = git@github.com:markhovs/dpp-data-analysis.git
