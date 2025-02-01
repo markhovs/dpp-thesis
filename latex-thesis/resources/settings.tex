@@ -1,0 +1,253 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\KOMAoptions{parskip=half}      % Set paragraph spacing
+\setstretch{1.172413793103448}  % Set line spacing
+
+% Adjust page layout:
+\usepackage[a4paper,    % Paper size
+    head=20mm,          % Header height
+    top=28mm,           % Top margin
+    bottom=10mm,        % Bottom margin
+    inner=30mm,         % Inner margin (binding side)
+    outer=20mm,         % Outer margin
+    includefoot         % Include footer in page layout calculations
+]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TUM colors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Primary Colors in RGB
+\definecolor{TUMBlue}{RGB}{0,101,189}%      Pantone 300
+\definecolor{TUMWhite}{RGB}{255,255,255}%
+\definecolor{TUMBlack}{RGB}{0,0,0}%
+% Secondary Colors in RGB
+\definecolor{TUMBlue1}{RGB}{0,51,89}%       Pantone 540
+\definecolor{TUMBlue2}{RGB}{0,82,147}%      Pantone 301
+\definecolor{TUMgray}{rgb}{0.498,0.498,0.498}
+\definecolor{TUMGray1}{RGB}{51,51,51}%
+\definecolor{TUMGray2}{RGB}{127,127,127}%
+\definecolor{TUMGray3}{RGB}{204,204,204}%
+% Accent Colors in RGB
+\definecolor{TUMBlue3}{RGB}{100,160,200}%   Pantone 542
+\definecolor{TUMBlue4}{RGB}{152,198,234}%   Pantone 283
+\definecolor{TUMIvory}{RGB}{218,215,203}%
+\definecolor{TUMOrange}{RGB}{227,114,34}%
+\definecolor{TUMGreen}{RGB}{162,173,0}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Header and Footer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpairofpagestyles  % Clear default header and footer styles
+
+% Header and Footer content
+\automark[section]{chapter}     % 'section' title in even-page headers, 'chapter' title in odd-page headers
+\ohead{\headmark}               % Set header content
+\ofoot[\pagemark]{\pagemark}    % Set footer content with pagenumber
+
+\setlength{\footheight}{15mm}   % Set footer height
+\setkomafont{pagehead}{\fontsize{9pt}{10pt}\bfseries\normalfont}    % Set header font
+\setkomafont{pagefoot}{\fontsize{12pt}{13pt}\bfseries\normalfont}   % Set footer font
+%\setheadsepline{0.7pt}
+\KOMAoptions{headsepline=0.7pt:\textwidth}
+
+
+% Foonotes
+\renewcommand{\footnoterule}{\hrule width 5.08cm height .6pt \vspace*{3.9mm}}   % appearance of horizontal line that separates main text from footnotes: Width 5.08 cm, height: 0.6 pt, after the rule there is a vertical space of 3.9 mm
+\deffootnote{3mm}{3mm}{% Custom layout for the footnote: 3 mm indentation for firt line of the footnote, 3 mm indentation for subsequent lines
+    \makebox[3mm][l]{\textsuperscript{\thefootnotemark}}    % box of 3 mm for the footnote number, formated as superscript
+}
+\setkomafont{footnoterule}{\fontsize{9pt}{20pt}\selectfont} % Font of footnote rule
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Headings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\KOMAoptions{%
+open=right,             % Start chapters on right-hand pages
+    numbers=noendperiod, % No period after section numbers
+    headings=small      % Small font for headings
+}
+
+\makeatletter
+\g@addto@macro{\@afterheading}{\vspace{-\parskip}} % Remove axtra space after headings
+\renewcommand*{\chapterheadstartvskip}{\vspace{\@tempskipa}\vspace*{-7mm}} % Adjust space above chapter headings
+\makeatother
+
+\setkomafont{disposition}{\bfseries\sffamily}   % Font for section commands (chapter, section, ...)
+
+% Chapter
+\setkomafont{chapter}{\normalfont\fontsize{18pt}{21pt}\selectfont}
+\RedeclareSectionCommand[%
+  beforeskip=0pt,               % No space before chapter title  
+  afterskip=10pt,               % 10 pt space after chapter title
+  tocbeforeskip=0pt plus .2pt,  % Space before chapter entry in table of content (toc)
+  tocindent=0pt,                % No indent for chapter entry in toc
+  tocnumwidth=25pt,             % Width for chapter number in toc
+  toclinefill=\hfill            % Fill line after chapter number in toc
+]{chapter}
+\renewcommand*{\chapterformat}{\makebox[11mm][l]{\thechapter \enskip}}  % Chapter number
+
+% Section
+\setkomafont{section}{\fontsize{15pt}{18pt}\selectfont}
+\RedeclareSectionCommand[%
+  beforeskip=0pt,
+  afterskip=10pt,
+  tocindent=0pt,
+  tocnumwidth=25pt,
+  toclinefill=\hfill
+]{section}
+\renewcommand*{\sectionformat}{\makebox[11mm][l]{\thesection \enskip}} % Feste Breite für Abschnittsnummer und ohne Punkt danach
+
+% Subsection
+\setkomafont{subsection}{\fontsize{12pt}{15pt}\selectfont}
+\RedeclareSectionCommand[%
+  beforeskip=0pt,
+  afterskip=5pt,
+  tocindent=25pt,
+  tocnumwidth=35pt,
+  toclinefill=\hfill
+]{subsection}
+\renewcommand*{\subsectionformat}{\makebox[11mm][l]{\thesubsection \enskip}} % Feste Breite für Unterabschnittsnummer und ohne Punkt danach
+
+% Subsubsection
+\setkomafont{subsubsection}{\bfseries\fontsize{12pt}{15pt}\selectfont}
+\RedeclareSectionCommand[%
+beforeskip=0pt,
+afterskip=5pt
+]{subsubsection}
+\renewcommand*{\subsubsectionformat}{\makebox[14mm][l]{\thesubsubsection.\enskip}} % Feste Breite für Unterabschnittsnummer und ohne Punkt danach
+
+% Color chapter titles
+\addtokomafont{chapter}{\color{TUMgray}\bfseries}
+
+% Line under chapter titles
+\preto\chapterheadendvskip{%
+    {\setlength{\parskip}{0pt}%
+    \setlength{\parfillskip}{0pt plus 1fil} % 
+    \setlength{\hfuzz}{12pt}                    % hfuzz allows line to be a bit longer than specified without generating overfull hbox warning
+    \vspace{-5mm}                               % Reduce space above the line (closer to chapter title)  
+    \noindent\color{TUMgray}\rule[-.3\baselineskip]{\linewidth}{0.5pt}}\par % horizontal line (rule), offset vertically by -.3\baselineskip, width equal to linewidth and height 0.5 pt
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Lists %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlist{nolistsep} %Reduce space between text and lists
+
+% Customize lists:
+\setlist{%
+    labelsep=0mm,
+    itemindent=0pt,
+    labelindent=0pt,
+    align=left,
+    parsep=0.0ex,
+    nosep
+}
+\setlist[itemize]{%
+    leftmargin=5mm,
+    labelwidth=4.9mm
+}
+\setlist[itemize,1]{        % First level itemize
+    before={\vspace{-0.25ex}},
+    label={\raisebox{.35ex}{\smaller[2]\textbullet}},
+    %after={\vspace{-\parsep}\vspace{-.5ex}} %Absatzgröße nach Listen
+}
+\setlist[itemize,2]{        % Second level itemize
+    label={\raisebox{.35ex}{\rule{.58ex}{.58ex}}}
+}
+\setlist[enumerate]{        % First level enumerate
+    leftmargin=10mm,
+    labelwidth=9.9mm
+}
+\setlist[enumerate,2]{      % Second level enumerate
+    label={\alph*.}
+}
+
+\setlist[description]{%
+%    labelindent=!,
+    leftmargin=1em,
+    labelwidth=!,
+    parsep=0mm,
+    partopsep=0mm,
+    labelsep=1em,
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Content lists  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\KOMAoptions{%
+    listof=totoc,       % Title of content list included in table of contents
+    listof=nochaptergap,% Remove vertical space in toc
+    listof=numbered,    % list of figures and tables are numbered
+    listof=entryprefix, % Adds "Figure" / "Table" in lof/lot
+}
+
+% Table of content (toc)
+\AfterTOCHead[toc]{\protect\vspace{-.1ex}\doublespacing} % Spacing between toc header and toc entries
+\setcounter{tocdepth}{2}    % include up to subsections
+
+% List of figures (lof)
+\AfterTOCHead[lof]{\protect\vspace{-.1ex}\doublespacing} % Spacing between lof header and lof
+\setuptoc{lof}{noparskipfake} % Adjust spacing after the lof header to match other headers
+
+% List of tables (lot)
+\AfterTOCHead[lot]{\protect\vspace{-.1ex}\doublespacing} % Spacing between lot header and lot
+\setuptoc{lot}{noparskipfake} % Adjust spacing after the lot header to match other headers
+
+%%%%%%%%%%%%%%%%%%%%%%%% Tables, Figures and Equations %%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thetable}{\thechapter -\arabic{table}}       % Table number = "chapter-number"
+\DeclareCaptionLabelFormat{fmllabel}{#1 #2:\hspace{0.7cm}}  % Format for table caption
+\captionsetup[table]{labelformat=fmllabel, singlelinecheck = off, labelfont = it, textfont = it, font = footnotesize, labelsep=none}    % Table captions
+
+\renewcommand{\arraystretch}{1.5} % Scaling factor for tables
+
+% New column types
+\newcolumntype{M}{X<{\vspace{4pt}}} % Table with additional vertical spacing to improve readability
+\newcolumntype{L}[1]{>{\hsize=#1\hsize\linewidth=\hsize}>{\raggedright\arraybackslash}X}% Aligned left, flexible width
+\newcolumntype{R}[1]{>{\hsize=#1\hsize\linewidth=\hsize}>{\raggedleft\arraybackslash}X} % Aligned right, flexible width
+\newcolumntype{C}[1]{>{\hsize=#1\hsize\linewidth=\hsize}>{\centering\arraybackslash}X}  % Aligned center, flexible width
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}                                 % Aligned center, fixed width - Code example: P{4cm}
+% Example: \begin{tabularx}{\textwidth}{|L{1}|C{1}|P{2cm}|M|}
+
+% Figures
+\renewcommand{\thefigure}{\thechapter-\arabic{figure}} 
+\captionsetup[figure]{labelformat=fmllabel, singlelinecheck = off, labelfont = it, textfont = it, font = footnotesize, labelsep=none}
+\graphicspath{{Abbildungen/}}
+
+%Equations
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01} %Ersetzt * mit Punkt bei Formeln
+\renewcommand{\theequation}{\thechapter-\arabic{equation}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Glossaries and Acronym list %%%%%%%%%%%%%%%%%%%%%%%%
+\glsaddkey
+ {unit}     % Add a unit key to glossary entries
+ {}
+ {\glsentryunit}    % lowercase     in glossary entry
+ {\Glsentryunit}    % capitalized   in glossary entry
+ {\glsunit}         % lowercase     in document
+ {\Glsunit}         % capitalized   in document
+ {\GLSunit}         % all caps      in document
+
+
+\makeglossaries     % Enable glossaries
+\setacronymstyle{short-long}
+\renewcommand{\glossarysection}[2][]{}
+
+% \newlength{\@glsdotsep} hat einen Fehler beim Kompilieren geworfen
+% \setlength{\@glsdotsep}{\@dotsep em}
+\newcommand*{\glsdotfill}{\leavevmode \cleaders \hb@xt@ \@glsdotsep{\hss .\hss }\hfill \kern \z@}
+\makeatother
+
+% Custom glossary style
+\newglossarystyle{WissenschaftlicheArbeiten}{%
+  \setglossarystyle{index}%
+
+  \renewcommand*{\glossaryheader}{\vspace{.75em}}% Space before gls header
+  \renewcommand*{\glstreenamefmt}[1]{##1}% Format for gls tree names
+  \renewcommand*{\glossentry}[2]{%
+     \item\glsentryitem{##1}\glstreenamefmt{\glstarget{##1}{\glossentryname{##1}}}% Format for glossary entry
+     \ifglshassymbol{##1}{\space(\glossentrysymbol{##1})}{}% Include symbols if present
+     \space-\space\glossentrydesc{##1}\glsdotfill\glspostdescription\space ##2% Format entry description with fot fill
+  }%
+  \renewcommand*{\glsgroupheading}[1]{%
+    \item\glstreenamefmt{\textbf{\fontsize{14}{17}\selectfont\enskip\glsgetgrouptitle{##1}}}\vspace{.3em}}%
+}
+
+% Prevent orphans and widows (Schusterjungen und Hurenkinder)
+\clubpenalty=10000                  % Prevent orphaned lines at the beginning of a page
+\widowpenalty=10000                 % Prevent widow lines at the end of a page
+\widowpenalties=3 10000 10000 150   % Additional setting to prevent widows and orphans

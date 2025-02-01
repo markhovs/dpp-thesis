@@ -1,0 +1,57 @@
+%%Titelblatt
+
+
+\makeatletter
+\newcommand{\Titelblatt}{%
+	\begin{titlepage}
+	\raggedbottom
+	\begin{flushright}	
+	\includegraphics[height=15mm]{./resources/TUM_Logo_blau.pdf} \\ [1ex]
+	\end{flushright}
+
+		\begin{Huge}		
+			\@title \par 
+		\end{Huge}
+			
+		\begin{LARGE}
+			\@subtitle \par
+		\end{LARGE}
+
+		\vspace{100 pt}
+		
+		\begin{large}
+			Wissenschaftliche Arbeit zum Erlangen des akademischen Grades \newline
+			\arbeitstyp  \newline
+			\mbox{an der School of Engineering and Design der Technischen Universität München}
+		\end{large}
+	
+		\vspace{20 pt}
+
+		\begin{table}[h]
+			\hskip-0.2cm
+			\begin{tabular}{lll}
+				\textbf{Themenstellender:} &  & Prof. Dr.-Ing. Johannes Fottner \\
+				&  & Lehrstuhl für Fördertechnik Materialfluss Logistik \\
+				\textbf{Betreuer/Betreuerin:}&  & \Betreuer \\
+				&  &  \\
+				\textbf{Eingereicht von:} &  & \hl{\@author} \\
+				&  & \adresseI \\
+				&  & \adresseII \\
+				&  & \telnr \\
+				&  & \\
+				\textbf{Eingereicht am:} &  & \abgabetermin{} in Garching \\
+				& & \\
+				\textbf{Inventarnr. fml:}& & \hl{\Arbeitsnummer} \\
+			\end{tabular}
+		\end{table}
+
+	 
+	\end{titlepage}
+
+}
+\makeatother
+
+\Titelblatt
+
+	
+

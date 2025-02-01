@@ -1,0 +1,6 @@
+font.size: 9
+figure.figsize: 5.90551181102, 3.5
+lines.linewidth: 0.5
+axes.prop_cycle: cycler('color', ['000000','98C6EA', '0065BD', 'E8E8E8', 'A2AD00', 'E37222'])
+text.usetex: True
+text.latex.preamble: \usepackage{siunitx} \sisetup{locale = DE, group-separator = {.}, exponent-product=\ensuremath{\cdot}} \usepackage{amsmath} \usepackage{helvet} \renewcommand{\familydefault}{\sfdefault}

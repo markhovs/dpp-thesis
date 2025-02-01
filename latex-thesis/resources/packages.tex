@@ -1,0 +1,100 @@
+\usepackage[headsepline]{scrlayer-scrpage} % Customizable headers and footers
+
+\usepackage[utf8]{inputenc} % Input text encoding: UTF-8
+\usepackage[T1]{fontenc}    % Font encoding
+
+\usepackage[english]{babel} % Language support
+\usepackage{graphicx}       % Graphics support
+
+% Font Helvetica (TUM Corporate Design)
+\usepackage[scaled]{helvet} % Load Helvetica font
+\usepackage[tx]{sfmath}     % Load a matching sans-serif maths font
+\renewcommand{\familydefault}{\sfdefault} % Set the font to sans serif
+
+% Hyphenation
+\usepackage{hyphenat}               % Hyphenation support
+\hyphenation{TUM in-te-res-siert}   % Custom Hyphenation rule
+
+% SI-Units
+\usepackage{siunitx}
+\sisetup{locale = DE, exponent-product=\ensuremath{\cdot}} % Configure SI unit settings
+
+% Alternative SI unit setup, with fractions
+%\sisetup{per-mode=fraction, locale = DE, exponent-product=\ensuremath{\cdot}}
+
+\usepackage{microtype}      % Improved text formatting
+\usepackage{adjustbox}      % Adjust boxes
+\usepackage{diagbox}        % Diagonal lines in tables
+\usepackage{amssymb}        % Additional math symbols
+\usepackage{xspace}         % Space management
+\usepackage{setspace}       % Control line spacing
+\usepackage{calc}           % Extended arithmetic operations
+\usepackage{amsmath}        % Math typesetting
+\usepackage{enumitem}       % More control over lists (itemize-, enumerate- and description-)
+\usepackage{relsize}        % Adjust font size relative to the current font size
+\usepackage{tabularx}       % More flexible tables
+\usepackage{longtable}      % Tables that span multiple pages
+\usepackage{makecell}       % Customizable table cells
+\usepackage{graphicx}       % More flexible graphics
+\usepackage{caption}        % Customize captions
+\usepackage{subcaption}     % Support for sub-captions
+\usepackage{multirow}       % Merge table rows
+\usepackage[table,xcdraw]{xcolor} % Colors for tables and text
+\usepackage{float}          % Improved float management for tables, figures, etc.
+\usepackage{todonotes}      % TODO notes and placeholders
+%\usepackage{tabu}          %Tabulary extension with more options for tables --> nicht verwenden. veraltet und verbuggt
+\usepackage{pdfpages}       % Include external PDF pages
+\usepackage{epstopdf}       % Include EPS images
+%\usepackage{etex}          % Extended TeX support --> nicht verwenden, wirft Fehler
+\usepackage{csquotes}       % Context-sensitive quotation marks
+\usepackage[style=apa, backend=biber, isbn=false, doi=false, giveninits=true]{biblatex} % APA citation style
+\usepackage{blindtext}      % Placeholder text
+\usepackage{lipsum}         % Lorem ipsum text
+%\usepackage{pgfplots}      % Create plots like in Excel
+\usepackage{nameref}        % Referencing section names
+\usepackage{hhline}         % Customizable horizontal lines in tables
+\usepackage{bm}             % Bold math symbols
+\usepackage{listliketab}    % List-like tables
+\usepackage{booktabs}       % Enhanced table formatting
+\usepackage{chngcntr}       % Number figures and tables by chapter:
+\counterwithin{figure}{chapter} % Number figures by chapter
+\counterwithin{table}{chapter}  % Number tables by chapter
+
+
+% Abbreviations and glossaries
+\usepackage[%
+%xindy,         % xindy for indexing
+acronym,        % Separate acronym list
+nopostdot,      % No period at the end of glossary entries
+toc,            % Add glossaries to table of contents
+nogroupskip,    % Makes glossary more compact
+nonumberlist    % Omits list of pages where each term is used
+]{glossaries}
+% \usepackage[%
+%     %xindy,   % xindy for indexing
+%     acronym,  % Separate acronym list
+%     nopostdot,% No period at the end of glossary entries
+%     toc,      % Add glossaries to table of contents
+%     nogroupskip, % Makes glossary more compact
+%     stylemodus
+%     nonumberlist  % Omits list of pages where each term is used
+% ]{glossaries-extra}
+
+
+\usepackage{soul}       % Highlight text (underlining \ul, strikethrough \st, highlight \hl)
+\usepackage{xparse}     % Define complex commands
+
+
+\usepackage[official]{eurosym} % Euro symbol \euro
+\usepackage[graphicx]{realboxes}    % Allows rotation and scaling of boxes with text / graphics
+\usepackage{listings}          % Code listings
+
+% Cross-referencing
+\usepackage{varioref}   % Cross referencing \vref
+\usepackage[hidelinks,breaklinks]{hyperref} % Create hyperlinks
+\usepackage[noabbrev]{cleveref} % Cross referencing without abbreviations (e.g. Figure 1 instead of Fig. 1)
+
+% Debugging:
+%\usepackage{showframe} % Display layout frames / boundaries
+%\usepackage{layout}    % Detailed ayout informationen
+%\usepackage{printlen}  % Print length values
