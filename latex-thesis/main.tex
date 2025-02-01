@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FML-Template: Thesis - Adapted from the TUM Template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[ngerman, fontsize = 12pt, twoside=on]{scrreprt}
+% * For documents in english replace "ngerman" by "english" - you need to adjust the language in /chapter/abstract.tex, too
+% * For documents with 70 pages or less activate twoside=off
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% !!! DO NOT REMOVE !!! %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./resources/packages.tex}
+\input{./resources/settings.tex}
+\input{./resources/thesis_metadata.tex}
+\input{./resources/commands.tex}
+\input{./resources/abbreviations.tex}
+\input{./resources/formulas.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Add literature resource
+\addbibresource{./literature/literature.bib}
+
+
+\begin{document}
+\selectlanguage{ngerman} % For documents in english replace "ngerman" by "english"
+\sloppy % Switches to a generous formatting mode, which relatively few word breaks at line ends, but allows somewhat larger word spacings within lines.
+\raggedbottom
+
+% Add title
+\input{chapters/01-title-thesis.tex} % student thesis
+% \input{chapters/01-title-dissertation.tex} % dissertation
+\newpage\null\thispagestyle{empty}\newpage
+
+% Copyright page (dissertation only)
+%\input{chapters/02-copyright-page.tex}
+%\newpage\null\thispagestyle{empty}\newpage
+
+% Add preamble (student thesis) / acknowledgement (dissertation)
+\input{chapters/03-preamble.tex}
+\newpage\null\thispagestyle{empty}\newpage
+
+% Add abstract
+\input{chapters/04-abstract.tex}
+
+% Add table of contents and begin roman page numbering
+\pagenumbering{Roman}
+\tableofcontents 
+
+% Add list of abbreviations
+\input{chapters/05-list_of_abbreviations.tex}
+
+% Add list of formulas
+\input{chapters/06-list_of_formulas.tex}
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+% Begin of content section and arabic page numbering
+\pagestyle{scrheadings}
+\pagenumbering{arabic} % Reset Page-Numbering to 1
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THE CONTENT PART OF THE WORK GOES HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Introduction
+\input{chapters/11-introduction.tex}
+
+% About this template - Can be commented out later
+\input{chapters/99-about_this_template.tex}
+
+% Chapter 2
+\input{chapters/12-chapter-2.tex}
+
+% Chapter 3
+\input{chapters/13-chapter-3.tex}
+
+
+
+% Add bibliography
+\printbibliography[heading=bibintoc,title=Literaturverzeichnis]
+
+% Add list of figures
+\listoffigures
+
+% Add list of tables
+\listoftables
+\onehalfspacing % Reduced spacing
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THE APPENDIX OF THE WORK GOES HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\captionsetup[figure]{list=no}  % Figures don't appear in the list of figures
+\captionsetup[table]{list=no}   % Tables don't appear in the list of tables
+
+% Appendix A
+\input{chapters/21-appendix_A.tex}
+
+% Appendix B
+\input{chapters/22-appendix_B.tex}
+
+
+% Add declaration
+\input{chapters/29-declaration.tex}
+\end{document}

@@ -1,0 +1,146 @@
+\chapter{Benutzung in ShareLaTeX}
+\label{cha:benutzung_sharelatex}
+
+Um das Dokument zu kompilieren, muss in ShareLaTeX im Menü das main document auf \glqq main.tex\grqq{} gesetzt werden. 
+
+\chapter{Lessons learned und best practices}
+Dieses Kapitel sammelt einige Hinweise und best practices im Umgang mit Latex allgemein und mit dieser Vorlage. Es soll gerne beständig erweitert werden.
+
+\begin{itemize}
+	\item \textbf{Formelzeichen}: Es empfiehlt sich, insbesondere wenn in der Arbeit viele Formelzeichen auftauchen, diese von Beginn an mithilfe des Paktets \verb|glossaries| als Makros zu definieren und im Text und in Gleichungen diese zu verwenden. Dadurch werden aufwändige Nacharbeiten vermieden, falls sich die Darstellung eines Formelzeichens im Laufe der Arbeit noch einmal ändert. Dies muss dann nur zentral an einer Stelle geschehen. Beispiele finden sich in \cref{cha:hinweise_vorlage} und in \verb|resources/formulas.tex|
+	\item \textbf{Einheiten}: Die konsequente Verwendung des Pakets \verb|siunitx| zum Formatieren von Zahlen (\verb|\num{100000.1}| führt zu \num{100000.1}) und Einheiten (\verb|\SI{10}{\kilo\newton}| führt zu \SI{10}{\kilo\newton}), sowohl im Fließtext als auch in Gleichungen, ist sehr empfehlenswert. Dadurch ist eine konsistente Darstellung in der gesamten Arbeit gewährleistet. Das Paket erlaubt eine Vielzahl von Einstellungen zur Darstellung von Zahlen (z. B. des Dezimal- und Tausendertrennzeichens) und Einheiten (z. B. Art und Weise der Darstellung von Brüchen). Diese können in der Datei \verb|resources/packages.tex| im Befehl \verb|\sisetup{...}| nach Belieben angepasst werden. Die Dokumentation des Pakets enthält zahlreiche Makros, zum Beispiel zur Erstellung von Zahlenintervallen, Aufzählungen etc.
+	\item \textbf{Referenzen}: Das Paket \verb|cleverref| bietet zahlreiche Vereinfachung bei der Verwendung von Referenzen. Der Befehl \verb|\cref{*Referenz zu Gleichung/Abbildung/...*}| fügt automatisch die korrekte Bezeichnung der Referenzart ein. Weitere Befehle, z. B. zur Referenzierung mehrerer Abbildungen, können der Paket-Dokumentation entnommen werden.
+	\item \textbf{Erstellen von Abbildungen}: Mithilfe des Pakets \verb|tikz| können Abbildungen direkt in Latex erstellt werden. Dadurch ist sichergestellt, dass die Beschriftungen der Abbildungen konsistent mit dem übrigen Text sind. Alternativ ist auch bei der Verwendung von \verb|matplotlib| eine Einbindung von Latex möglich. Dies erfordert zunächst eine lokale Latex-Installation. Über die Verwendung eines Style-Sheets in \verb|matplotlib| (siehe \url{https://matplotlib.org/stable/tutorials/introductory/customizing.html}) lässt sich dann die Darstellung der Abbildungen konfigurieren. Die Datei \verb|latex_matplotlib.mplstyle| enthält u. a. die nötigen Einstellungen zur Einbindung von Latex in \verb|matplotlib|. In der Einstellung \verb|text.latex.preamble:| lassen sich Latex-Pakete einbinden.
+	\item \textbf{Suchen und Ersetzen mit regulären Ausdrücken}: Dies ist weniger ein Hinweis zu Latex und mehr ein Tipp zum Umgang mit TexStudio und Overleaf/ShareLateX. Beide Editoren unterstützen in Ihrer Suchfunktion (STRG+F) die Verwendung regulärer Ausdrücke. Mit diesen können Zeichenfolgen-"Muster" definiert werden, nach denen im Text gesucht wird. Diese lassen sich auch durch bestimmte Muster ersetzen. Dies kann unter Umständen viel Zeit sparen, wenn Änderungen nach einem bestimmten Muster gemacht werden müssen.  Infos zur Umsetzung in Overleaf/ShareLateX: \url{https://de.overleaf.com/learn/how-to/Can_I_use_regular_expressions_for_%22replace_with%22%3F}. Info zur Umsetzung in TexStudio: Analog zu Overleaf mit dem Unterschied, dass ein (in diesem Fall das erste) Match mit \textbackslash1 statt \$1 referenziert wird. Zu regulären Ausdrücken allgemein finden sich online zahlreiche Tutorials.
+\end{itemize}
+
+\chapter{Hinweise zur Benutzung der Vorlage}
+\label{cha:hinweise_vorlage}
+
+Die \LaTeX -Vorlage des Lehrstuhl fml für Studienarbeiten und Dissertationen wird laufend weiterentwickelt. Die aktuelle Version der Vorlage kann von \url{https://gitlab.lrz.de/fml/public/fml-template-thesis} heruntergeladen werden.
+
+Ein wertvolles Buch zur Einarbeitung in \LaTeX \ stammt von \textcite{Sch-2017} und ist  \href{https://opac.ub.tum.de/TouchPoint/perma.do?q=+0\%3D\%22ZDB-30-ORH-047769556\%22+IN+\%5B2\%5D&v=tum&l=de}{hier} als eBook über die Universitätsbibliothek erhältlich.
+
+Probleme bei der Verwendung der Vorlage sind zunächst selbständig (bspw. durch Google und entsprechende Foren) zu lösen, da diese i.\,d.\,R. stark vom Einzelfall anhängen. Verbesserungsvorschläge können anschließend gerne über die Betreuerin oder den Betreuer als Issue oder Merge-Request eingebracht werden.
+
+\section{Einige Beispiele zur Verwendung der Vorlage}
+\label{sec:verwendung_vorlage}
+
+Dies ist eine Referenz zu \cref{fig:beispielbild}.
+
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=10cm]{./figures/logotum_neu.png}
+	\caption{Beispielbild}
+	\label{fig:beispielbild}
+\end{figure}
+
+\subsection{Die dritte Abstufung der Überschrift}
+
+Und dies eine Referenz zu \cref{tab:beispieltabelle}. Mit den Buchstaben hinter \verb|\begin{table}| lassen sich die Tabellen und Bilder in verschiedener Art und Weise in den Text einbinden. Siehe dafür die Anleitung von table/figure. Zur automatischen Anpassung der Spaltenbreite stehen drei Spaltenarten zur Verfügung: L, R, C. Diese passen die Spaltenbreite automatisch an und sind linksbündig, rechtsbündig und zentriert. Bei Verwendung müssen diese beispielsweise folgendermaßen definiert werden \begin{verbatim}\begin{tabularx}{0.83\textwidth} {cL{0.5}R{0.5}C{2}}\end{verbatim} 
+Die Zahlen in den geschweiften Klammern geben die relative Spaltenbreite im Verhältnis zu den übrigen Spalten an. Die Summe dieser Zahlen muss der Spaltenanzahl entsprechen. Dies ist mit folgender Tabelle beispielhaft gezeigt: \\
+
+
+\begin{table}[htbp]
+		\centering
+		\caption{Beschriftung von Tabellen}
+		\footnotesize
+		\begin{tabularx}{0.83\textwidth} {cL{0.5}R{0.5}C{2}} % L,R,C: aufomatische Spaltenbreite (links, rechts, mittig)
+			\toprule
+			\textbf{Spalte 1} & Spalte 1 &Spalte 2 &Spalte 3 \\ \midrule %\TabHead formatiert die Überschriften der ersten Zeile
+			\textbf{Zeile 1} & Zelle 11 & Zelle 21 & Zeile 31 \\
+			\textbf{Zeile 2} & Zelle 12 & Zelle 22 & Zeile 32 \\
+			\textbf{Zeile 3} & Zelle 13 & Zelle 23 & Zeile 33 \\ 
+			\textbf{Zeile 4} & Zelle 14 & Zelle 24 & Zeile 34 \\ \bottomrule
+		\end{tabularx}
+		\label{tab:beispieltabelle}
+\end{table}
+
+
+
+Mithilfe des Packages \verb|soul| und den dazugehörigen Befehl \verb|hl| lassen sich Passagen im Text \hl{markieren}. Mit dem TODO-Befehl erfolgt das gleiche im Code. %TODO Dieser Taucht nicht im Text auf, dafür im Strukturbereich(rechtes Fenster bei TeXstudio als TODO).
+In ShareLaTeX gibt es außerdem die Möglichkeit, wie in Word Kommentare in den Quelltext zu setzen, die wie in Word am Seitenrand angezeigt werden.
+
+\subsection{Die dritte Abstufung der Überschrift}
+
+Abkürzungen können und resources/abbreviations.tex angelegt werden. Beispiele finden sich dort. Im Text verwendet werden sie mit den Befehlen
+\begin{itemize}
+    \item \verb|\acrshort{tum}|: \acrshort{tum}
+    \item \verb|\acrlong{tum}|: \acrlong{tum}
+\end{itemize}
+
+Mit dem Befehl \verb|\begin{equation}| Formeln in den Text eingebunden wie hier in \cref{eqn:beispielformel1}. Als Multiplikationszeichen ist ein Punkt zu verwenden. Bei der Verwendung wiederkehrender Formelzeichen empfiehlt es sich, diese unter \verb|resources/formulas.tex| als glossary entries anzulegen. Beispiel:
+\begin{verbatim}
+\newglossaryentry{sym:beschleunigung}{name=\ensuremath{a},
+	description={Beschleunigung},
+	unit={\unexpanded{\si{\metre\per\square\second}}}
+}
+\end{verbatim}	
+
+Im Text können Formelzeichen, deren Beschreibung und Einheit dann folgendermaßen verwendet werden:
+\begin{itemize}
+	\item \verb|\gls{sym:beschleunigung}|: \gls{sym:beschleunigung}
+	\item \verb|\glsdesc{sym:beschleunigung}|: \glsdesc{sym:beschleunigung}
+	\item \verb|\glsunit{sym:beschleunigung}|: \glsunit{sym:beschleunigung}
+\end{itemize}
+
+Auch in Gleichungen können Sie verwendet werden:
+
+\begin{verbatim}
+\begin{equation}
+    \gls{sym:beschleunigung} = \frac{\gls{sym:geschwindigkeit}{\gls{sym:zeit}} 
+\end{equation}   
+\end{verbatim}
+Dies führt zu
+\begin{equation}
+    \gls{sym:beschleunigung} = \frac{\gls{sym:geschwindigkeit}}{\gls{sym:zeit}} 
+\end{equation}
+
+\begin{equation}
+	\vf = m * \va
+	\label{eqn:beispielformel1}
+\end{equation}
+
+Vektoren werden mit einem kleinen Buchstaben (fett) geschrieben, Matrizen mit einem großen Buchstaben (fett). 
+
+\begin{equation}
+	\vf = \vK * \vu
+	\label{eqn:beispielformel2}
+\end{equation}
+
+\begin{equation}
+	\vv = \vom \times \vr
+	\label{eqn:beispielformel3}
+\end{equation}
+
+Dabei werden bei den Variablen die laufenden Indizes in italic geschrieben (Bsp. $Y_{i}$, $A_{n,m}$), während die Indizes von Variablen die z.B. das Minimum oder Maximum eines Wertes angeben in normaler Schrift geschrieben werden (Bsp $Y_{\text{max}}$, $Y_{\text{min}}$).
+
+\section{Überschrift 2 im Kapitel 2}
+
+Werden Quellenangaben für einen Absatz angegeben, so werden diese mit dem Befehl \verb|\autocite| hinter dem Punkt am Ende des Absatzes gesetzt, wie folgendem Beispiel zu entnehmen ist. \\
+\lipsum[1-1] \autocite{DIN15018T3}
+
+Werden nur für einen Satz die Quellen angegeben, so steht dieser ebenfalls mit dem Befehl \verb|\autocite| genau hinter diesem Satz vor dem Punkt \autocite{Diss_Fottner}.
+
+Mit dem Befehl \verb|\textcite| können Ausdrücke wie \glqq In seiner Dissertation untersucht \textcite{Diss_Fottner}\grqq{} eingefügt werden.
+
+Hinweis zu TexStudio: Sollten die Quellen nicht richtig angezeigt werden (z.B. sie sind fett markiert), so ist über den Tab \glqq Tools\grqq{} und dann Bibliography (F8) die Bibliographie von Latex zu aktualisieren. Ein weiterer Grund der falschen Anzeige der Quellen könnte eine nicht definierte Quelle in der .bib Datei oder ein  Schreibfehler sein.
+\newpage
+
+Beispiele wie das Format einer Quellenangabe als bib-Code auszusehen hat, können in der bib-Datei dieser Vorlage gefunden werden. Wie sie im Literaturverzeichnis abgebildet sind soll hier beispielhaft vorgestellt werden:
+
+Eine Dissertation: \autocite{Diss_Fottner}
+
+Ein Buch: \autocite{Ewins}
+
+Eine bestimmte Seite in einem Buch: \autocite[789]{Ewins}
+
+Mehrere Seiten in einem Buch: \autocite[789--791]{Ewins}
+
+Ein Artikel in einem Konferenzbericht: \autocite{Sch-2012}
+
+Ein Artikel aus einer Zeitschrift: \autocite{Cel-1997}
+
+Normen: \autocite{DIN15018T3,EN12999, ISO8686T1}
+
+Eine Anleitung: \autocite{NODYA}

@@ -1,0 +1,29 @@
+\chapter{Anhang A}
+\label{cha:anhang_A}
+
+\pagenumbering{arabic} % Reset Page-Numbering to 1
+\renewcommand*{\thepage}{A-\arabic{page}} % Nummerierung A-1
+
+Hier stehen die Inhalte von Anhang A.
+
+\begin{figure}[htbp] 
+	\centering
+	\includegraphics[width=10cm]{./figures/logotum_neu.png}
+	\caption{Beispielbild im Anhang}
+	\label{fig:beispielbild_anhang}
+\end{figure}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Beispieltabelle im Anhang}
+    \footnotesize
+    \begin{tabularx}{0.83\textwidth} {cL{0.5}R{0.5}C{2}} % L,R,C: aufomatische Spaltenbreite (links, rechts, mittig)
+        \toprule
+        \textbf{Spalte 1} & Spalte 1 &Spalte 2 &Spalte 3 \\ \midrule %\TabHead formatiert die Überschriften der ersten Zeile
+        \textbf{Zeile 1} & Zelle 11 & Zelle 21 & Zeile 31 \\
+        \textbf{Zeile 2} & Zelle 12 & Zelle 22 & Zeile 32 \\
+        \textbf{Zeile 3} & Zelle 13 & Zelle 23 & Zeile 33 \\ 
+        \textbf{Zeile 4} & Zelle 14 & Zelle 24 & Zeile 34 \\ \bottomrule
+    \end{tabularx}
+    \label{tab:beispieltabelle_anhang}
+\end{table}
