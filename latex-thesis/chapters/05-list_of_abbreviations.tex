@@ -3,22 +3,22 @@
        {\setlength\LTleft{0pt}
        \setlength\LTright{0pt}
 \begin{longtable}{@{\extracolsep{\fill}}lp{0.75\textwidth}}}{\end{longtable}}
-     \renewcommand*{\glossaryheader}{\textbf{Abkürzung} & \textbf{Bedeutung} \\ \hline}%  
+     \renewcommand*{\glossaryheader}{\textbf{Abbreviation} & \textbf{Meaning} \\ \hline}%
      \renewcommand*{\glsgroupheading}[1]{}
      \renewcommand*{\glsgroupskip}{}
      \renewcommand*{\glossentry}[2]{
-     \glstarget{##1}{\glossentryname{##1}}
-&
-     \glossentrydesc{##1} \\
+       \glstarget{##1}{\glossentryname{##1}}
+       &
+       \glossentrydesc{##1} \\
      }
      \renewcommand*{\subglossentry}[3]{
-       \glossentry{##2}{##3}} 
+       \glossentry{##2}{##3}
+     } 
 }
 
-\chapter*{Abkürzungsverzeichnis}
-\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
-%\addtocontents{toc}{\vspace{-10pt}}\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
-\pagestyle{plain}
+\chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\thispagestyle{plain}
 
 \printglossary[type=\acronymtype, style=fml-glossar]
 \newpage

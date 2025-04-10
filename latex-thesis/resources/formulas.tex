@@ -1,20 +1,55 @@
-\newglossaryentry{sym:larray}{name=\ensuremath{L_{Array}},
-    description={Länge eines Arrays},
-    unit={\si{-}}
-    }
-    
-\newglossaryentry{sym:zeit}{name=\ensuremath{t},
-    description={Zeit},
-    unit={\unexpanded{\si{\second}}}
-    }
-    
-\newglossaryentry{sym:beschleunigung}{name=\ensuremath{a},
-    description={Beschleunigung},
-    % unit={\unit{\frac{m}{s^2}}}
-    unit={\unexpanded{\si{\metre\per\square\second}}}
-    }
-    
-\newglossaryentry{sym:geschwindigkeit}{name=\ensuremath{v},
-    description={Geschwindigkeit},
-    unit={\unexpanded{\si{\metre\per\second}}}
-    }
+\newglossaryentry{sym:subkpiavg}{%
+    name=\ensuremath{\bar{S}_{ij}},%
+    description={Average rating for sub-KPI \(j\) under KPI \(i\)},%
+    unit={\si{-}}%
+    % equation={\ensuremath{\bar{S}_{ij}=\frac{1}{N}\sum_{k=1}^{N}S_{ij}^{(k)}}}%
+}
+
+\newglossaryentry{sym:kpiimportance}{%
+    name=\ensuremath{I_i},%
+    description={Aggregated importance for KPI \(i\)},%
+    unit={\si{-}}%
+    % equation={\ensuremath{I_i=\frac{1}{M_i}\sum_{j=1}^{M_i}\bar{S}_{ij}}}%
+}
+
+\newglossaryentry{sym:totalimportance}{%
+    name=\ensuremath{T},%
+    description={Total importance over all KPIs},%
+    unit={\si{-}}%
+    % equation={\ensuremath{T=\sum_{i=1}^{K}I_i}}%
+}
+
+\newglossaryentry{sym:weight}{%
+    name=\ensuremath{w_i},%
+    description={Normalized weight for KPI \(i\)},%
+    unit={\si{-}}%
+    % equation={\ensuremath{w_i=\frac{I_i}{T}}}%
+}
+
+\newglossaryentry{sym:utility}{%
+    name=\ensuremath{U},%
+    description={Overall utility score at the KPI level},%
+    unit={\si{-}}%
+    % equation={\ensuremath{U=\sum_{i=1}^{K}w_i\cdot P_i}}%
+}
+
+\newglossaryentry{sym:perfnorm}{%
+    name=\ensuremath{P_i^\ast},%
+    description={Normalized performance score for KPI \(i\)},%
+    unit={\si{-}}%
+    % equation={\ensuremath{P_i^\ast=\frac{P_i-P_i^{\min}}{P_i^{\max}-P_i^{\min}}}}%
+}
+
+\newglossaryentry{sym:subkpivalue}{%
+    name=\ensuremath{w_{ij}},%
+    description={Weight for sub-KPI \(j\) under KPI \(i\)},%
+    unit={\si{-}}%
+    % equation={\ensuremath{w_{ij}=\frac{\bar{S}_{ij}}{\sum_{i=1}^{K}\sum_{j=1}^{M_i}\bar{S}_{ij}}}}%
+}
+
+\newglossaryentry{sym:utilitysub}{%
+    name=\ensuremath{U_{\text{sub}}},%
+    description={Overall utility score at the sub-KPI level},%
+    unit={\si{-}}%
+    % equation={\ensuremath{U_{\text{sub}}=\sum_{i=1}^{K}\sum_{j=1}^{M_i}w_{ij}\cdot P_{ij}}}%
+}

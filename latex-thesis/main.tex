@@ -2,7 +2,7 @@
 % FML-Template: Thesis - Adapted from the TUM Template
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[ngerman, fontsize = 12pt, twoside=on]{scrreprt}
+\documentclass[english, fontsize = 12pt, twoside=on]{scrreprt}
 % * For documents in english replace "ngerman" by "english" - you need to adjust the language in /chapter/abstract.tex, too
 % * For documents with 70 pages or less activate twoside=off
 
@@ -20,7 +20,7 @@
 
 
 \begin{document}
-\selectlanguage{ngerman} % For documents in english replace "ngerman" by "english"
+\selectlanguage{english} % For documents in english replace "ngerman" by "english"
 \sloppy % Switches to a generous formatting mode, which relatively few word breaks at line ends, but allows somewhat larger word spacings within lines.
 \raggedbottom
 
@@ -64,11 +64,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Introduction
-\input{chapters/11-introduction.tex}
-
 % About this template - Can be commented out later
-\input{chapters/99-about_this_template.tex}
+% \input{chapters/99-about_this_template.tex}
+
+% Introduction
+\input{chapters/11-chapter-1}
 
 % Chapter 2
 \input{chapters/12-chapter-2.tex}
@@ -76,10 +76,17 @@
 % Chapter 3
 \input{chapters/13-chapter-3.tex}
 
+% Chapter 4
+\input{chapters/14-chapter-4.tex}
 
+% Chapter 5
+\input{chapters/15-chapter-5.tex}
+
+% Chapter 6
+\input{chapters/16-chapter-6.tex}
 
 % Add bibliography
-\printbibliography[heading=bibintoc,title=Literaturverzeichnis]
+\printbibliography[heading=bibintoc,title=References]
 
 % Add list of figures
 \listoffigures

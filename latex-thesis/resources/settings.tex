@@ -34,6 +34,12 @@
 \definecolor{TUMOrange}{RGB}{227,114,34}%
 \definecolor{TUMGreen}{RGB}{162,173,0}%
 
+% Custom Colors for the Project
+\usepackage[dvipsnames]{xcolor}
+\definecolor{myGrey}{HTML}{B3B4BD}      % Grey
+\definecolor{myDarkBlue}{HTML}{050A44}  % Dark Blue
+\definecolor{myLightBlue}{HTML}{0A21C0} % Light Blue
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Header and Footer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpairofpagestyles  % Clear default header and footer styles
 
@@ -112,6 +118,8 @@ beforeskip=0pt,
 afterskip=5pt
 ]{subsubsection}
 \renewcommand*{\subsubsectionformat}{\makebox[14mm][l]{\thesubsubsection.\enskip}} % Feste Breite für Unterabschnittsnummer und ohne Punkt danach
+
+\setcounter{secnumdepth}{3}  % Enable numbering for subsubsections
 
 % Color chapter titles
 \addtokomafont{chapter}{\color{TUMgray}\bfseries}
@@ -224,7 +232,7 @@ afterskip=5pt
 
 
 \makeglossaries     % Enable glossaries
-\setacronymstyle{short-long}
+\setacronymstyle{long-short}
 \renewcommand{\glossarysection}[2][]{}
 
 % \newlength{\@glsdotsep} hat einen Fehler beim Kompilieren geworfen
