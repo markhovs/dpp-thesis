@@ -1,2 +1,5 @@
+# Ignore sensitive info
+latex-thesis/resources/thesis_metadata.tex
+
 # macOS specific
 .DS_Store
