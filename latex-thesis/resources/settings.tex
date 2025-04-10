@@ -1,19 +1,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SETTINGS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifdigital
+% Uncomment the following to use the digital version:
+% \digitaltrue
+
 
 \KOMAoptions{parskip=half}      % Set paragraph spacing
 \setstretch{1.172413793103448}  % Set line spacing
 
 % Adjust page layout:
-\usepackage[a4paper,    % Paper size
-    head=20mm,          % Header height
-    top=28mm,           % Top margin
-    bottom=10mm,        % Bottom margin
-    inner=30mm,         % Inner margin (binding side)
-    outer=20mm,         % Outer margin
-    includefoot         % Include footer in page layout calculations
-]{geometry}
+\ifdigital
+  \usepackage[a4paper,
+      head=20mm,
+      top=28mm,
+      bottom=10mm,
+      left=25mm,
+      right=25mm,
+      includefoot
+  ]{geometry}
+\else
+  \usepackage[a4paper,
+      head=20mm,
+      top=28mm,
+      bottom=10mm,
+      inner=30mm,
+      outer=20mm,
+      includefoot
+  ]{geometry}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TUM colors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Primary Colors in RGB
@@ -64,11 +79,11 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Headings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\KOMAoptions{%
-open=right,             % Start chapters on right-hand pages
-    numbers=noendperiod, % No period after section numbers
-    headings=small      % Small font for headings
-}
+\ifdigital
+  \KOMAoptions{open=any, numbers=noendperiod, headings=small}
+\else
+  \KOMAoptions{open=right, numbers=noendperiod, headings=small}
+\fi
 
 \makeatletter
 \g@addto@macro{\@afterheading}{\vspace{-\parskip}} % Remove axtra space after headings
@@ -180,7 +195,7 @@ afterskip=5pt
 \KOMAoptions{%
     listof=totoc,       % Title of content list included in table of contents
     listof=nochaptergap,% Remove vertical space in toc
-    listof=numbered,    % list of figures and tables are numbered
+    % listof=numbered,    % DON'T number the list of figures and tables
     listof=entryprefix, % Adds "Figure" / "Table" in lof/lot
 }
 
